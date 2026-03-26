@@ -1,0 +1,9 @@
+div {
+    border: 4px solid #999;
+    max-width: 900px;
+    margin-left: auto; /* центрування блоку */
+    margin-right: auto; /* центрування блоку */
+    padding: 25px;
+    padding-bottom: 50px;
+}
+
