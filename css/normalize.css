@@ -1,8 +1,0 @@
-*,
-*::after,
-*::before {
-    box-sizing: border-box; /* ширина блочних включає Border і Padding*/
-    margin: 0;
-    padding: 0;
-
-}

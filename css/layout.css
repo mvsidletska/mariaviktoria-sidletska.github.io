@@ -1,40 +1,42 @@
 :root{
-    --txt-color-01: #555;           /* колір основного тексту*/
-    --txt-color-02: #ccc;           /* колір тексту інверсія*/
-    --header-color: #333;           /* колір заголовків*/
-    --lnk-color-01: #930;           /* колір покликань */
-    --lnk-color-02: #c30;           /* колір при наведенні*/
-    --bg-main-color: #ccc;          /* колір основного фону*/
-    --bg-second-color: #555;        /* колір фону №2*/
+    --header-txt-color: #0A0A0A0A; /*колір заголовку*/
+    --txt-color-01: #000;           /* колір основного тексту*/
+
+    --header-bg-first-color: #FEABEF;          /* колір основного фону*/
+    --header-bg-second-color: #FDFCF7;     /* колір фону №2*/
+
+    --nav-bg-color: #A7D292;
+    --nav-active-txt-color: #333;
+    --nav-txt-color: #FDFCF7;
+
+    --card-bg-color: #FDFCF7;
+    --card-hover-bg-color: #A7D292;
+    --card-txt-color: #000;
+    --card-hover-txt-color: #FDFCF7;
+
+    --thoughts-txt-color: #000;
+    --thoughts-bg-color: #A7D292;
+
+    --desktop-padding: 80px;
+
+    --star-color: #FF6AE4;
+
     --mob-padding: 20px;              /* відступи до контенту на смартфонах */
     --ipad-padding: 50px;              /* відступи до контенту на планшеті */
+    --desktop-padding: 80px;
     --max-width: 1380px;               /* обмеження ширини секції */
 }
 
 html, body {
-    font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
+    font-family: "Helvetica Neue", sans-serif;
     font-weight: 400;
     font-size: 16px; /* розмір основного тексту */
-    line-height: 150%; /* міжрядковий інтервал */
     font-style: normal;
     font-family: sans-serif;
     color: var(--txt-color-01);
-}
-em, i, .italic {
-    font-style: italic;
+    margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Fira Sans", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    line-height: 1.2;
-}
-
-h1{font-size: 2rem;}
-h2{font-size: 1.5rem;}
-h3{font-size: 1.35rem;}
 
 header > .inside,
 footer > .inside,
@@ -46,15 +48,24 @@ section > .inside {
     padding-right: var(--ipad-padding);
 }
 
-@media (max-width:640px) {
-
+@media (max-width:1380px) {
     header > .inside,
     footer > .inside,
     section > .inside {
-    
-    padding-left: var(--mob-padding);
-    padding-right: var(--mob-padding);
+        padding-left: var(--desktop-padding);
+        padding-right: var(--desktop-padding);
     }
+}
 
-    
+@media (max-width:640px) {
+    header > .inside,
+    footer > .inside,
+    section > .inside {
+        padding-left: var(--mob-padding);
+        padding-right: var(--mob-padding);
+    }
+    .thoughts .thought::before {
+        height: 25px;
+        width: 30px;
+    }
 }
