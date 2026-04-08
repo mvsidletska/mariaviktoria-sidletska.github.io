@@ -1,10 +1,13 @@
-header .inside {
+.container .inside {
     display: flex;
     justify-content: center; /* вирівнювання по основній осі(main axis) */
     align-items: center;            /* вирівнювання рядів по ортогональній осі (cross axis) */
     align-content: center;          /* вирівнювання усього контенту по ортогональній осі (cross axis) */
     flex-direction: column;
     min-height: 100dvh;
+}
+
+.header-bg-gradient {
     background: linear-gradient(180deg, var(--header-bg-first-color) 0%, var(--header-bg-second-color) 100%);
 }
 

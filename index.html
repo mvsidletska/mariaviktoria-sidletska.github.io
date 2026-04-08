@@ -1,47 +1,92 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Шарити</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/burger.css">
 </head>
 
-<body>
+<body id="top">
     <nav>
-
-    </nav>
-    <header>
-        <div class="inside">
-            <h1 class="header-text">шарити</h1>
-            <div class="thoughts">
-                <div class="thought"><span>шариш?</span></div>
-                <div class="thought"><span>не шарю!</span></div>
+        <div class="navbar">
+            <div class="navigation">
+                <button class="nav-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="#top">головна</a></li>
+                    <li><a class="nav-link" href="#s1">про слово</a></li>
+                    <li><a class="nav-link" href="#s2">приклади</a></li>
+                    <li><a class="nav-link" href="#s3">галерея</a></li>
+                    <li><a class="nav-link" href="#s4">контакти</a></li>
+                </ul>
             </div>
         </div>
-    </header>
-    <section id="s1">
-        <div class="inside">
-            
-        </div>
-    </section>
-    <section id="s2">
-        <div class="inside">
-            
-        </div>
-    </section>
-    <section id="s3">
-        <div class="inside">
-            
-        </div>
-    </section>
-    <footer></footer>
-    
+    </nav>
+    <div class="wrapper">
+        <header class="container">
+            <div class="inside header-bg-gradient">
+                <h1 class="header-text">шарити</h1>
+                <div class="thoughts">
+                    <div class="thought"><span>шариш?</span></div>
+                    <div class="thought"><span>не шарю!</span></div>
+                </div>
+            </div>
+        </header>
+        <section id="s1" class="container">
+            <div class="inside s1-bg-gradient">
+                <div class="s1-content">
+                    <div class="s1-text">
+                        <p>
+                            <b>“Шарити”</b> — сленгове слово, яке прийшло в українську молодіжну мову під впливом
+                            англійського “to share”. Спочатку це слово означало буквально “ділитися”, як у соцмережах:
+                            поділитися постом, фоткою чи інформацією.
+                        </p>
+                        <p>
+                            З часом значення розширилося. У спільнотах айтішників, геймерів і молоді “share” почали вживати
+                            у формі “I share this” у значенні “я в темі / я розумію, про що йдеться”.
+                        </p>
+                        <p style="margin-top: 37px;">
+                            Так поступово утворилося українське сленгове “шарити”, яке вже означає не “ділитися”, а
+                            <b>“розбиратися, розуміти, вловлювати суть”</b>.
+                            Якщо людина “шарить”, вона знає тему і орієнтується без пояснень.
+                        </p>
+                    </div>
+                    <div class="star-container">
+                        <div class="star"></div>
+                    </div>
+                </div>
+                <h1 class="s1-header-text">я в темі</h1>
+            </div>
+        </section>
+        <section id="s2">
+            <div class="inside">
+
+            </div>
+        </section>
+        <section id="s3">
+            <div class="inside">
+
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+    <script src="js/nav.js"></script>
+
 </body>
+
 </html>

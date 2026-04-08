@@ -21,7 +21,6 @@
 
     --star-color: #FF6AE4;
 
-    --mob-padding: 20px;              /* відступи до контенту на смартфонах */
     --ipad-padding: 50px;              /* відступи до контенту на планшеті */
     --desktop-padding: 80px;
     --max-width: 1380px;               /* обмеження ширини секції */
@@ -35,8 +34,18 @@ html, body {
     font-family: sans-serif;
     color: var(--txt-color-01);
     margin: 0;
+    scroll-behavior: smooth;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction:column;
+    min-height: 100dvh;
+    margin-left: auto;  /* Центрування блочного елементу по-горизонталі */
+    margin-right: auto; /* Центрування блочного елементу по-горизонталі */
+    padding: 0;         /* Внутнішній відступ для блочного елементу */
+    position: relative;
+}
 
 header > .inside,
 footer > .inside,
