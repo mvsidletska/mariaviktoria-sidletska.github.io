@@ -1,72 +1,84 @@
-document.addEventListener("DOMContentLoaded", function(){
-    
-    let burger = document.querySelector(".nav-icon");
-    let dy = 0;
+document.addEventListener("DOMContentLoaded", function () {
 
-    /* Обробка події "Click" для елемента '.nav-icon' */
-    /* 1. По кліку ініціюється перемикання (вкл./викл.)  */
-    /*    класу '.open' для '.navbar' та для самого '.nav-icon' */
-    /* 2. Також створюється додатковий елемент '.overlay'  */
+    const burger = document.querySelector(".nav-icon");
+    const navbox = document.querySelector("nav");
+    const navlinks = document.querySelectorAll(".nav-link");
+    let lastScrollY = 0;
 
-    burger.addEventListener("click", (e) => {
-        burger.classList.toggle("open");                            // Перемикання класу 'open' для бургера
-        let navbar = document.querySelector(".navbar");             // Віднайти елемент з класом '.navbar' та записати у змінну navbar
-        let overlay = document.querySelector(".navbar .overlay");   // Віднайти елемент з класом '.overlay' та записати у змінну overlay
-        navbar.classList.toggle("open");                            // Перемикання класу 'open' для .navbar
-        if ( overlay ) {                                            // Якщо елемент з класом '.overlay' існує
-            overlay.parentNode.removeChild(overlay);                // то видалити його (закриття меню)
-        }
-        else {                                                      // Якщо елементу з класом '.overlay' НЕ існує
-            let overlay_div = document.createElement("div");        // то створити його (відкриття меню),
-            overlay_div.classList.add("overlay");                   // як перший дочірній елемент '.navbar'
+    /* ── Burger: toggle mobile menu ── */
+    burger.addEventListener("click", () => {
+        burger.classList.toggle("open");
+        const navbar = document.querySelector(".navbar");
+        const overlay = document.querySelector(".navbar .overlay");
+        navbar.classList.toggle("open");
+        if (overlay) {
+            overlay.parentNode.removeChild(overlay);
+        } else {
+            const overlay_div = document.createElement("div");
+            overlay_div.classList.add("overlay");
             navbar.insertBefore(overlay_div, navbar.firstChild);
-            overlay_div.addEventListener("click", (e) => {          // і додати до новоствореного елементу '.overlay'
-                navbar.classList.remove("open");                    // обробку події "click", по якій
-                burger.classList.remove("open");                    // закривати меню (ремувити клас 'open' для '.navbar' і бургера)
-                overlay_div.parentNode.removeChild(overlay_div);    // та видаляти власне сам 'overlay'
+            overlay_div.addEventListener("click", () => {
+                navbar.classList.remove("open");
+                burger.classList.remove("open");
+                overlay_div.parentNode.removeChild(overlay_div);
             });
         }
     });
 
-    /* Для усіх елементів з класом '.nav-link' (пункти головного меню) */
-    /* ініціюється обробка події "click" */
-
-    let navlinks = document.querySelectorAll(".nav-link");
-
-    navlinks.forEach((elem) => {
-
-        elem.addEventListener("click", (evt) => {
-            evt.stopImmediatePropagation();                             // зупинити системну обробку кліку
-            let navbar = document.querySelector(".navbar");
-            let overlay = document.querySelector(".navbar .overlay");
-            if ( overlay ) {                                            // Якщо елемент з класом '.overlay' існує,
-                navbar.classList.remove("open");                        // то закривати меню 
-                burger.classList.remove("open");                        // (ремувити клас 'open' для '.navbar' і бургера)
-                overlay.parentNode.removeChild(overlay);                // та видаляти власне сам 'overlay'
+    /* ── Close mobile menu on nav link click ── */
+    navlinks.forEach((link) => {
+        link.addEventListener("click", (evt) => {
+            evt.stopImmediatePropagation();
+            const navbar = document.querySelector(".navbar");
+            const overlay = document.querySelector(".navbar .overlay");
+            if (overlay) {
+                navbar.classList.remove("open");
+                burger.classList.remove("open");
+                overlay.parentNode.removeChild(overlay);
             }
-            return(true);                                               // відновити системну обробку кліку (перехід по href)
+            return true;
         });
     });
 
-    /* Додати функцію обробки для події 'Scroll' */
-    /* При скролі вгору, якщо позиція все ще більше, ніж 60px від верхнього краю */
-    /* Додавати клас '.topfixed' для елемента "nav"*/
+    /* ── Hide on scroll down / show on scroll up ── */
+    window.addEventListener("scroll", () => {
+        const y = window.scrollY;
 
-    
-    window.addEventListener('scroll', function() {
-
-        let navbox = document.querySelector("nav");
-        let y = window.scrollY;
-        
-        if (y < dy && y > 60) {
-            if (!navbox.classList.contains("topfixed"))
-            navbox.classList.add("topfixed");
+        if (y <= 60) {
+            navbox.classList.remove("topfixed", "nav-hidden");
+        } else if (y > lastScrollY) {
+            // scrolling down — hide nav
+            navbox.classList.add("nav-hidden");
+            navbox.classList.remove("topfixed");
         } else {
-            if (navbox.classList.contains("topfixed"))
-                navbox.classList.remove("topfixed");
+            // scrolling up — show nav with background
+            navbox.classList.remove("nav-hidden");
+            navbox.classList.add("topfixed");
         }
-        dy = y;
-      });
 
-    /* Зміна класу для <nav> по скролу вгору */
+        lastScrollY = y;
+    });
+
+    /* ── Active section highlighting via Intersection Observer ── */
+    const hero = document.querySelector("header.container");
+    const sections = [hero, ...document.querySelectorAll("section[id]")].filter(Boolean);
+
+    const setActive = (el) => {
+        navlinks.forEach((link) => link.classList.remove("active"));
+        const href = el.tagName.toLowerCase() === "header" ? "#top" : `#${el.id}`;
+        const activeLink = document.querySelector(`.nav-link[href="${href}"]`);
+        if (activeLink) activeLink.classList.add("active");
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) setActive(entry.target);
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
 });
+

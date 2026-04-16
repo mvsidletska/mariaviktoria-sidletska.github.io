@@ -23,7 +23,19 @@
 
     --ipad-padding: 50px;              /* відступи до контенту на планшеті */
     --desktop-padding: 80px;
+    --mob-padding: 20px;               /* відступи до контенту на мобільному */
     --max-width: 1380px;               /* обмеження ширини секції */
+
+    --bg-nav-1: #FDFCF7;              /* фон навігації після прокрутки */
+    --bg-nav-2: #FDFCF7;              /* фон мобільного меню */
+    --nav-color-1: var(--nav-txt-color); /* колір бургера (початковий) */
+    --nav-color-3: #333;              /* колір меню після прокрутки */
+    --nav-color-4: var(--nav-bg-color); /* колір меню hover після прокрутки */
+
+    --brg-width: 30px;
+    --brg-height: 20px;
+    --brg-weight: 3px;
+    --brg-color-1: #333;              /* колір бургера після прокрутки */
 }
 
 html, body {

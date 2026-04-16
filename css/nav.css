@@ -6,10 +6,14 @@ nav {
     position: fixed;
     width: 100%;
     z-index: 95;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
 }
 
 nav.topfixed {
-    background: var(--bg-nav-1);
     position: fixed;
 }
 
@@ -116,7 +120,8 @@ nav .navbar {
     padding: 16px 42px;
 }
 
-.navigation a:hover {
+.navigation a:hover,
+.navigation a.active {
     background-color: var(--nav-bg-color);
     color: var(--nav-active-txt-color); /* Основний колір меню (hover) */
 }
