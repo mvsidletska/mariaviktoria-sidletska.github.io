@@ -1,0 +1,43 @@
+.s2-bg-gradient {
+    background: linear-gradient(180deg, var(--header-bg-first-color) 0%, var(--header-bg-second-color) 100%);
+}
+
+.s2-text-container {
+    width: 35%;
+    text-align: justify;
+}
+
+.s2-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+    width: 50%;
+}
+
+.s2-card {
+    background-color: var(--card-bg-color);
+    border-radius: 16px;
+    padding: 35px 17px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5vw;
+    color: var(--card-txt-color);
+    min-height: 130px;
+}
+
+.s2-card p {
+    margin: 0;
+}
+
+.s2-card .card-hover-text {
+    margin-top: 20px;
+    font-size: 1.3vw;
+    color: var(--card-hover-txt-color);
+}
+
+.s2-cards b {
+    font-size: 2vw;
+}
+
+.s2-card:hover {
+    background-color: var(--card-hover-bg-color);
+}

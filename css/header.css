@@ -7,6 +7,14 @@
     min-height: 100dvh;
 }
 
+.header-text {
+    text-transform: uppercase;
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: bold;
+    font-size: 18vw;
+    margin: 0;
+}
+
 .header-bg-gradient {
     background: linear-gradient(180deg, var(--header-bg-first-color) 0%, var(--header-bg-second-color) 100%);
 }

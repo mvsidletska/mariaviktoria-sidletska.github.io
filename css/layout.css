@@ -59,6 +59,12 @@ html, body {
     position: relative;
 }
 
+.page-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 header > .inside,
 footer > .inside,
 section > .inside {
