@@ -15,6 +15,7 @@ nav.nav-hidden {
 
 nav.topfixed {
     position: fixed;
+    background: var(--bg-nav-1);
 }
 
 /* nav::before {
@@ -39,7 +40,7 @@ nav.topfixed::before {
     display: flex;
     justify-content: space-between;     /* Схема вирівнювання лого та меню (desktop) по основній осі (main axis) */
     align-items: center;                /* Схема вирівнювання лого та меню (desktop) по додатковій осі (cross axis) */
-    max-width: var(--max-width);        /* Ширина .nav-inside не більше 1280px */
+    /* max-width: var(--max-width);         Ширина .nav-inside не більше 1280px  */
     padding: var(--mob-padding);        /* Внутрішні відступи */
     position: relative;
     transition: all .3s ease-in-out;
@@ -53,8 +54,8 @@ nav.topfixed::before {
     /* background-color: rgba(10,10,10,.5); */
     /* background-blend-mode: multiply; */
     /* background-size: cover; */
-    padding-top: 12px;      /* Внутрішні відступи після прокрутки */
-    padding-bottom: 12px;   /* Внутрішні відступи після прокрутки */
+    padding-top: 0.75rem;      /* Внутрішні відступи після прокрутки */
+    padding-bottom: 0.75rem;   /* Внутрішні відступи після прокрутки */
 }
 
 .logo {
@@ -84,7 +85,7 @@ nav.topfixed::before {
 }
 
 .logo img {
-    margin-right: 15px;
+    margin-right: 0.9375rem;
 }
 
 .logo span {
@@ -94,7 +95,7 @@ nav.topfixed::before {
     letter-spacing: .035em;
     font-weight: 600;
     text-transform: uppercase;
-    max-width: 80px;
+    max-width: 5rem;
 }
 
 nav .navbar {
@@ -113,11 +114,11 @@ nav .navbar {
     text-decoration: none;
     position: relative;
     transition: all .3s ease;
-    font-family: "Helvetica Neue", sans-serif;
-    font-size: 1.8vw;
-    font-weight: normal;
+    font-family: HelveticaNeue;
+    font-size: clamp(0.875rem, 1.6vw, 1.5rem);
+    font-weight: 500;
     text-transform: uppercase;
-    padding: 16px 42px;
+    padding: 1rem 2.625rem;
 }
 
 .navigation a:hover,
@@ -135,8 +136,8 @@ nav .navbar {
 }
 
 .navigation ul {
-    margin: 40px 80px;
-    padding: 0px;
+    margin: 0.5rem 0.5rem;
+    padding: 0;
     list-style: none;
     justify-content: space-around;
     display: flex;
@@ -169,21 +170,24 @@ a:hover, a:focus, a:active {
         background-color: var(--bg-nav-2);
         display: flex;
         flex-direction: column;
-        visibility: visible;
+        visibility: hidden;
         justify-content: flex-start;
         align-items: flex-start;
-        width: 70vw; /* 70% from Viewport width */
+        width: 100vw;
         height: 100dvh; /* 100% Dynamic viewport height */
-        position: absolute;
-        right: 0;
+        position: fixed;
+        left: 0;
         top: 0;
-        padding-top: 80px;
-        transform: translateY(-100%);
-        transition: transform .35s ease;
+        margin: 0;
+        padding-top: 5rem;
+        transform: translateX(100%);
+        transition: transform .35s ease, visibility 0s .35s;
     }
 
     .open .navigation ul {
-        transform: translateY(0);
+        visibility: visible;
+        transform: translateX(0);
+        transition: transform .35s ease, visibility 0s 0s;
     }
 
     .open ul li {
@@ -195,8 +199,8 @@ a:hover, a:focus, a:active {
 
     .open ul a {
         color: var(--nav-color-3);  /* Основний колір мобільного меню */
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
     }
 
     .open ul a:hover {

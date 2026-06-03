@@ -1,0 +1,110 @@
+.s3-bg-gradient {
+    background: linear-gradient(180deg, var(--header-bg-second-color) 0%, var(--header-bg-first-color) 100%);
+}
+
+#sw-s3 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    --s3-img-size: 21.875rem;
+    padding-bottom: 1.5rem;
+}
+
+#sw-s3 .swiper-wrapper,
+#sw-s3 .swiper-slide {
+    background: transparent;
+}
+
+#sw-s3 .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: left;
+    height: auto;
+}
+
+#sw-s3 .swiper-slide p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 100%;
+    width: var(--s3-img-size);
+    min-height: 3.2rem;
+    opacity: 0;
+    transition: opacity .5s ease-out;
+}
+
+#sw-s3 .swiper-slide-next p {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+}
+
+.image-container {
+    width: var(--s3-img-size);
+    height: var(--s3-img-size);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    mix-blend-mode: multiply;
+    box-shadow: inset 0px 4px 4px 0px rgba(0,0,0,0.25);
+    border-radius: 0.5rem;
+}
+
+.imgage-bg-jacky {
+    background-image: url('../images/jacky.png');
+}
+
+.imgage-bg-leonardo {
+    background-image: url('../images/leonardo.png');
+}
+
+.imgage-bg-jim {
+    background-image: url('../images/jim.png');
+}
+
+.imgage-bg-mrbean {
+    background-image: url('../images/mr.bean.png');
+}
+
+.imgage-bg-mem {
+    background-image: url('../images/mem.png');
+}
+
+.imgage-bg-coolguy {
+    background-image: url('../images/coolguy.png');
+}
+
+#sw-s3 .swiper-button-next,
+#sw-s3 .swiper-button-prev {
+    top: auto;
+    bottom: calc(var(--s3-img-size) / 2 + 1.5rem);
+    transform: translateY(50%);
+}
+
+#sw-s3 .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+}
+
+@media (max-width: 48rem) {
+    #sw-s3 {
+        --s3-img-size: 15rem;
+    }
+
+    #sw-s3 .swiper-slide p {
+        font-size: 1rem;
+        padding-bottom: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    #sw-s3 .swiper-slide-active p {
+        opacity: 1;
+        transition: opacity 1s ease-out;
+    }
+}

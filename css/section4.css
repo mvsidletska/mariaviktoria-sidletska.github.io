@@ -1,0 +1,70 @@
+.s4-bg-gradient {
+    background: linear-gradient(180deg, var(--header-bg-first-color) 0%, var(--header-bg-second-color) 100%);
+}
+
+#s4 .inside {
+    align-items: flex-start;
+    padding: 0 5rem;
+}
+
+#s4 .inside > div {
+    display: grid;
+    grid-template-columns: min-content;
+}
+
+.s4-header-text {
+    text-transform: uppercase;
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-size: 6vw;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.s4-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(1rem, 2.08vw, 2rem);
+    line-height: 100%;
+}
+
+.s4-p {
+    margin-top: 1.25rem;
+    min-width: 0;
+}
+
+.p4-button {
+    background-color: var(--button-bg-color);
+    margin-top: 7.5rem;
+    padding: 1rem 3.5rem;
+    width: max-content;
+    border: 0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.p4-button:hover {
+    background-color: var(--button-hover-bg-color);
+    color: var(--button-hover-txt-color);
+}
+
+@media (max-width: 48rem) {
+    #s4 .inside {
+        padding: 0 var(--mob-padding);
+        align-items: center;
+    }
+
+    #s4 .inside > div {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+
+    .s4-header-text {
+        font-size: 8vw;
+        white-space: normal;
+    }
+
+    .p4-button {
+        margin-top: 3rem;
+    }
+}

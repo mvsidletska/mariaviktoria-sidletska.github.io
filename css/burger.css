@@ -19,7 +19,7 @@
 }
 
 .topfixed .nav-icon span {
-  background-color: var(--brg-color-1);
+  background-color: var(--nav-burger-bg-color);
 }
 
 .nav-icon span {
@@ -67,6 +67,7 @@
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+  background-color: var(--nav-icon-bg-color);
 }
 
 .nav-icon.open span:nth-child(3) {
@@ -74,6 +75,7 @@
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
+  background-color: var(--nav-icon-bg-color);
 }
 
 .nav-icon.open span:nth-child(4) {

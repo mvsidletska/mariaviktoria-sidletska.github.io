@@ -1,6 +1,6 @@
 .page-content p {
     font-family: "Montserrat", sans-serif;
-    font-size: 1.6vw;
+    font-size: clamp(1rem, 1.6vw, 1.5rem);
     font-weight: normal;
-    margin: 0px;
+    margin: 0;
 }
